@@ -92,10 +92,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.PowerUp, function (sprite, other
     } else {
         otherSprite.destroy()
     }
+    music.magicWand.play()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.PowerUpWeapon, function (sprite, otherSprite) {
     powerUpActive = true
     otherSprite.destroy()
+    music.powerUp.play()
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy(effects.disintegrate, 100)
@@ -106,6 +108,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     info.changeLifeBy(-1)
     otherSprite.destroy(effects.disintegrate, 200)
     powerUpActive = false
+    music.bigCrash.play()
 })
 let myEnemy: Sprite = null
 let enemyToSpawn = 0
